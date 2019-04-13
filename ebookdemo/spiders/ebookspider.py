@@ -15,7 +15,7 @@ class EbookspiderSpider(scrapy.Spider):
 
     def start_requests(self):
         for index in range(100):
-            url = 'http://www.xinxs84.com/quanben/' + index + '.html'
+            url = 'http://www.xinxs84.com/quanben/%d.html' % index
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):

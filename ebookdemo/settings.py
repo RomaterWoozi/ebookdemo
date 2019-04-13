@@ -10,6 +10,8 @@
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 import datetime
 
+import scrapy
+
 BOT_NAME = 'ebookdemo'
 
 SPIDER_MODULES = ['ebookdemo.spiders']
@@ -72,6 +74,8 @@ ITEM_PIPELINES = {
     # 'scrapy.pipelines.images.ImagesPipeline': 1,
 }
 
+
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 # AUTOTHROTTLE_ENABLED = True
@@ -85,13 +89,16 @@ ITEM_PIPELINES = {
 # Enable showing throttling stats for every response received:
 # AUTOTHROTTLE_DEBUG = False
 
+
+# ********** 设置缓存 **************
+ਧHTTPCACHE_POLICY = 'scrapy.extensions.httpcache.RFC2616Policy'
 # Enable and configure HTTP caching (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
-# HTTPCACHE_ENABLED = True
+HTTPCACHE_ENABLED = True
 # HTTPCACHE_EXPIRATION_SECS = 0FilesPipeline
-# HTTPCACHE_DIR = 'httpcache'
+HTTPCACHE_DIR = 'httpcache'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
-# HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 # LOG_LEVEL = 'DEBUG'
 # to_day = datetime.datetime.now()
 # log_file_path = 'logs/scrapy_{}_{}_{}_{}{}.log'.format(to_day.year, to_day.month, to_day.day, to_day.hour,
@@ -100,4 +107,3 @@ ITEM_PIPELINES = {
 
 # 设置输出文件编码格式
 FEED_EXPORT_ENCODING = 'UTF8'
-
